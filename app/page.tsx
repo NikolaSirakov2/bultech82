@@ -1,9 +1,16 @@
+import ContactUs from "@/components/ContactUs";
+import Hero from "@/components/Hero";
+import Pricing from "@/components/Pricing";
+import Services from "@/components/Services";
+import React from "react";
+
 export default function Home() {
   return (
     <>
-      <h1 className="font-bold text-neutral-500 text-2xl">
-        Hello World
-      </h1>
+      <Hero/>
+      <Services/>
+      <Pricing/>
+      <ContactUs/>
     </>
   );
 }
