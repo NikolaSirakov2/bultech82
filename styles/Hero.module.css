@@ -1,0 +1,17 @@
+.imageContainer {
+  position: relative;
+  width: 68vw;
+  height: 50vh;
+}
+
+@media (max-width: 640px) { 
+    .h3SmallScreen {
+      width: 350px; 
+      white-space: pre-wrap; 
+    }
+
+    .imageContainer {
+      width: 100%;
+      height: 30vh;
+    }
+  }
