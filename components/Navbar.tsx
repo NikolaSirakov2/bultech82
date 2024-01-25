@@ -1,14 +1,24 @@
-import Image from "next/image";
-import Link from "next/link";
-import { NAV_LINKS } from "../constants";
+"use client"
+
+import { useState } from 'react';
+import Image from 'next/image';
+import Link from 'next/link';
+import { NAV_LINKS } from '../constants';
 
 const Navbar = () => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const toggleMenu = () => {
+    console.error("toggleMenu")
+    setIsMenuOpen(!isMenuOpen);
+  };
+
   return (
     <nav className="flexBetween max-container padding-container relative z-30 py-5">
       <Link href="/">
         <Image src="/BultechLogo.jpg" alt="logo" width={104} height={49} />
       </Link>
-      <ul className="hidden h-full gap-12 lg:flex">
+      <ul className={`hidden h-full gap-12 lg:flex ${isMenuOpen ? 'block' : ''}`}>
         {NAV_LINKS.map((link) => (
           <Link
             href={link.href}
@@ -26,6 +36,7 @@ const Navbar = () => {
         width={32}
         height={32}
         className="inline-block cursor-pointer lg:hidden"
+        onClick={toggleMenu}
       />
     </nav>
   );
