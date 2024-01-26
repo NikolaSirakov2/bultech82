@@ -1,10 +1,10 @@
 // NAVIGATION
 export const NAV_LINKS = [
     { href: '/', key: 'home', label: 'Home' },
-    { href: '/', key: 'about_us', label: 'About Us' },
-    { href: '/', key: 'services', label: 'Services' },
-    { href: '/', key: 'pricing ', label: 'Pricing ' },
-    { href: '/', key: 'contacts', label: 'Contacts' },
+    { href: '#about-us', key: 'about_us', label: 'About Us' },
+    { href: '#services', key: 'services', label: 'Services' },
+    { href: '#pricing', key: 'pricing ', label: 'Pricing ' },
+    { href: '#contacts', key: 'contacts', label: 'Contacts' },
   ];
   
   // FOOTER SECTION
