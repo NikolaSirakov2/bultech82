@@ -63,6 +63,7 @@ const Navbar = () => {
               href={link.href}
               key={link.key}
               className="regular-16 text-gray-50 cursor-pointer pb-1.5 transition-all hover:font-bold"
+              onClick={toggleMenu}
             >
               {link.label}
             </Link>
