@@ -1,4 +1,4 @@
-// NAVIGATION
+
 export const NAV_LINKS = [
     { href: '/', key: 'home', label: 'Home' },
     { href: '#about-us', key: 'about_us', label: 'About Us' },
@@ -7,7 +7,27 @@ export const NAV_LINKS = [
     { href: '#contacts', key: 'contacts', label: 'Contacts' },
   ];
   
-  // FOOTER SECTION
+  export const PRODUCTION_PROCESSES = [
+    "Laser cutting",
+    "Bending",
+    "Deburring and cleaning",
+    "Welding",
+    "CNC and manual turning",
+    "CNC and manual milling",
+    "Manual and semi-automatic tapping",
+    "Manual assembly",
+  ];
+
+  export const POST_PROCESSING = [
+    "Electronic zinc plating",
+    "Electronic nickel plating",
+    "Passivation",
+    "Electropolishing",
+    "Anodizing",
+    "Oxidation",
+    "Powder coating",
+  ];
+
   export const FOOTER_LINKS = [
     {
       title: 'Learn More',
