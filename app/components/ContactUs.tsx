@@ -1,5 +1,5 @@
 import React from "react";
-import Button from "../helpers/Button";
+import Button from "../../helpers/Button";
 
 const ContactUs = () => {
   return (

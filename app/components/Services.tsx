@@ -1,5 +1,5 @@
 import React from "react";
-import { PRODUCTION_PROCESSES, POST_PROCESSING } from "../constants";
+import { PRODUCTION_PROCESSES, POST_PROCESSING } from "../../constants";
 
 const services = [
   { name: "Laser Cutting", image: "/LaserCutting.jpg" },
