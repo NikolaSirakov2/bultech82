@@ -33,7 +33,7 @@ export default function ScrollToTop() {
           position: "fixed",
           bottom: "20px",
           right: "20px",
-          backgroundColor: "blue",
+          backgroundColor: "gray",
           height: "40px",
           width: "40px",
           display: "flex",
