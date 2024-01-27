@@ -1,11 +1,12 @@
-// components/ContactUs.tsx
-// components/ContactUs.tsx
-// components/ContactUs.tsx
 import React from "react";
+import Button from "../helpers/Button";
 
 const ContactUs = () => {
   return (
-    <section id="contacts" className="max-container padding-container flex flex-col gap-20 py-10 pb-32 md:gap-28 lg:py-20">
+    <section
+      id="contacts"
+      className="max-container padding-container flex flex-col gap-20 py-10 pb-32 md:gap-28 lg:py-20"
+    >
       <div className="flex flex-col md:flex-row gap-10 md:gap-12 xl:gap-16">
         <div className="relative h-106 w-full md:w-1/2">
           <img
@@ -34,6 +35,8 @@ const ContactUs = () => {
           <p className="text-1xl text-gray-600 md:text-1xl xl:text-2xl">
             info@bultech82.com
           </p>
+
+          <Button>Send us a message</Button>
         </div>
       </div>
     </section>
