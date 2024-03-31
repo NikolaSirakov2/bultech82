@@ -5,15 +5,16 @@ import { useState } from "react";
 import { useEffect, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { NAV_LINKS } from "../../constants/navLinks";
+import { NAV_LINKS } from "@/constants/navLinks";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const menuRef = useRef<HTMLElement | null>(null);
+  const menuRef = useRef<HTMLDivElement | null>(null);
 
   const toggleMenu = () => {
-    console.error("toggleMenu");
-    setIsMenuOpen(!isMenuOpen);
+    if (window.innerWidth <= 524) {
+      setIsMenuOpen(!isMenuOpen);
+    }
   };
 
   useEffect(() => {
@@ -36,15 +37,16 @@ const Navbar = () => {
       </Link>
 
       <ul className="hidden h-full gap-12 lg:flex">
-        {NAV_LINKS.map((link) => (
-          <Link
-            href={link.href}
-            key={link.key}
-            className="regular-16 text-gray-50 flexCenter cursor-pointer pb-1.5 transition-all hover:font-bold"
-          >
-            {link.label}
-          </Link>
-        ))}
+      {NAV_LINKS.map((link) => (
+    <a
+      href={`#${link.href}`}
+      key={link.key}
+      className="regular-16 text-gray-50 cursor-pointer pb-1.5 transition-all hover:font-bold"
+      onClick={toggleMenu}
+    >
+      {link.label}
+    </a>
+  ))}
       </ul>
 
       <Image
@@ -63,14 +65,14 @@ const Navbar = () => {
       >
         <ul className={styles.menu}>
           {NAV_LINKS.map((link) => (
-            <Link
-              href={link.href}
+            <a
+              href={`#${link.href}`}
               key={link.key}
               className="regular-16 text-gray-50 cursor-pointer pb-1.5 transition-all hover:font-bold"
               onClick={toggleMenu}
             >
               {link.label}
-            </Link>
+            </a>
           ))}
         </ul>
       </div>
