@@ -1,5 +1,5 @@
 import React from "react";
-import { PRODUCTION_PROCESSES, POST_PROCESSING } from "../../constants";
+// import { PRODUCTION_PROCESSES, POST_PROCESSING } from "../../constants";
 
 const services = [
   { name: "Laser Cutting", image: "/LaserCutting.jpg" },
@@ -16,40 +16,12 @@ function Services() {
     >
       <h2 className="text-4xl font-bold mb-4">Production Processes</h2>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-        {PRODUCTION_PROCESSES.map((process, index) => (
-          <div
-            key={index}
-            className="card transform transition duration-500 ease-in-out hover:scale-105"
-          >
-            <img
-              src={services[index % services.length].image}
-              alt={process}
-              className="w-full h-64 object-cover"
-            />
-            <div className="card-body bg-white bg-opacity-75 p-4">
-              <h2 className="card-title text-lg font-bold">{process}</h2>
-            </div>
-          </div>
-        ))}
+        
       </div>
 
       <h2 className="text-4xl font-bold mt-8 mb-4">Post Processing</h2>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-        {POST_PROCESSING.map((process, index) => (
-          <div
-            key={index}
-            className="card transform transition duration-500 ease-in-out hover:scale-105"
-          >
-            <img
-              src={services[index % services.length].image}
-              alt={process}
-              className="w-full h-64 object-cover"
-            />
-            <div className="card-body bg-white bg-opacity-75 p-4">
-              <h2 className="card-title text-lg font-bold">{process}</h2>
-            </div>
-          </div>
-        ))}
+        
       </div>
     </section>
   );

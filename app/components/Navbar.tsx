@@ -5,7 +5,7 @@ import { useState } from "react";
 import { useEffect, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { NAV_LINKS } from "../../constants";
+import { NAV_LINKS } from "../../constants/navLinks";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
