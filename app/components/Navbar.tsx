@@ -37,16 +37,16 @@ const Navbar = () => {
       </Link>
 
       <ul className="hidden h-full gap-12 lg:flex">
-      {NAV_LINKS.map((link) => (
-    <a
-      href={`#${link.href}`}
-      key={link.key}
-      className="regular-16 text-gray-50 cursor-pointer pb-1.5 transition-all hover:font-bold"
-      onClick={toggleMenu}
-    >
-      {link.label}
-    </a>
-  ))}
+        {NAV_LINKS.map((link) => (
+          <a
+            href={`#${link.href}`}
+            key={link.key}
+            className="text-xl text-gray-700 cursor-pointer pb-1.5 transition-all hover:font-bold"
+            onClick={toggleMenu}
+          >
+            {link.label}
+          </a>
+        ))}
       </ul>
 
       <Image
