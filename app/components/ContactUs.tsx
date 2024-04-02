@@ -25,7 +25,7 @@ const ContactUs = () => {
           </p>
 
           <p className="text-1xl text-gray-600 md:text-1xl xl:text-2xl">
-            Nestor Abadjiev str 65.
+            Trakia, Industrial Zone, 4023
           </p>
 
           <p className="text-1xl text-gray-600 md:text-1xl xl:text-2xl">
