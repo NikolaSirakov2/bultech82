@@ -20,7 +20,7 @@ function Hero() {
         </div>
 
         <div className={style.imageContainer}>
-          <Image src="/machineParts.jpg" alt="Machine Parts" layout="fill" objectFit="cover" />
+          <Image src="/Image1.jpg" alt="Machine Parts" layout="fill" objectFit="cover" />
         </div>
       </div>
     </section>
