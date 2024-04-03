@@ -1,12 +1,4 @@
 import React from "react";
-// import { PRODUCTION_PROCESSES, POST_PROCESSING } from "../../constants";
-
-const services = [
-  { name: "Laser Cutting", image: "/LaserCutting.jpg" },
-  { name: "Bending", image: "/Bending.jpg" },
-  { name: "Welding", image: "/Welding.jpg" },
-  { name: "Deburring", image: "/Deburring.jpg" },
-];
 
 function Services() {
   return (
@@ -14,9 +6,41 @@ function Services() {
       id="services"
       className="max-container padding-container flex flex-col gap-20 py-10 pb-32 md:gap-28 lg:py-20"
     >
-      <h2 className="text-4xl font-bold mb-4">Production Processes</h2>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-        
+       <h1 className="text-4xl font-bold text-gray-800 md:text-5xl xl:text-5xl">
+            Production Processes
+          </h1>
+      <div className="flex flex-col md:flex-row gap-10 md:gap-12 xl:gap-16">
+        <div className="flex flex-row gap-3 md:w-4/4">
+
+          <div className="flex flex-col items-center space-y-4 md:flex-col">
+            <div className="relative h-106 w-full md:w-3/4">
+              <img
+                src="/Image2.jpg"
+                alt="Machine Parts"
+                className="object-cover object-center h-full w-full"
+              />
+            </div>
+
+            <p className="text-1xl text-gray-600 md:text-1xl xl:text-2xl">
+              Grinding, Tapping, Punching, Welding, Manual assembly
+            </p>
+          </div>
+
+          <div className="flex flex-col items-center space-y-4 md:flex-col">
+            <p className="text-1xl text-gray-600 md:text-1xl xl:text-2xl">
+              Laser cutting and bending sheet, Marking laser, CNC and manual
+              milling, CNC and manual turning, EDM
+            </p>
+
+            <div className="relative h-106 w-full md:w-3/4">
+              <img
+                src="/Image3.jpg"
+                alt="Machine Parts"
+                className="object-cover object-center h-full w-full"
+              />
+            </div>
+          </div>
+        </div>
       </div>
     </section>
   );
