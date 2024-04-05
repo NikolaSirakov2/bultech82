@@ -10,7 +10,7 @@ const ContactUs = () => {
       <div className="flex flex-col md:flex-row gap-10 md:gap-12 xl:gap-16">
         <div className="relative h-106 w-full md:w-1/2">
           <img
-            src="/OldTown.jpg"
+            src="/Trakia-Industrial-Zone.jpg"
             alt="Old Town"
             className="object-cover object-center h-full w-full"
           />
