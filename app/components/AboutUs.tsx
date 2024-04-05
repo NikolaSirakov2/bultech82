@@ -15,7 +15,7 @@ const AboutUs = () => {
           <div className="flex md:flex-row">
             <div className="relative h-106 w-full md:w-4/4">
               <img
-                src="/BultechLogo.jpg"
+                src="/Bultech82_logo.svg"
                 alt="Machine Parts"
                 className="object-cover object-center h-full w-full"
               />
