@@ -27,7 +27,7 @@ function SampleParts() {
     <CarouselPrevious />
     <CarouselContent className="overflow-visible p-4">
       {samples.map((sample) => (
-        <CarouselItem key={sample.name} className="w-1/3 border transform transition-transform duration-200 outline-transparent outline-2 mr-2">
+        <CarouselItem key={sample.name} className="w-1/4 border transform transition-transform duration-200 outline-transparent outline-2 mr-2">
           <Image src={sample.image} alt={sample.name} width={500} height={300} className="object-cover object-center" />
           <p className="text-1xl text-gray-600 md:text-1xl xl:text-2xl">{sample.text}</p>
         </CarouselItem>
