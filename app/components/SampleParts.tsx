@@ -1,7 +1,12 @@
-"use client";
-import React, { useState, useEffect } from "react";
-import { useKeenSlider } from "keen-slider/react";
-import "keen-slider/keen-slider.min.css";
+import React from "react";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel"
+import Image from "next/image";
 
 const samples = [
   { name: "1", text: "Steel part, produced by turning, milling and zincing", image: "/image6.jpg" },
@@ -13,36 +18,21 @@ const samples = [
 ];
 
 function SampleParts() {
-  const [sliderRef, slider] = useKeenSlider({
-    spacing: 15,
-    slidesPerView: 2,
-    centered: true,
-    loop: true,
-    mode: "free-snap",
-    dragStart: () => {
-      setIsDragging(true);
-    },
-    dragEnd: () => {
-      setIsDragging(false);
-    },
-  });
-  const [isDragging, setIsDragging] = useState(false);
-
   return (
-    <section
-      id="services"
-      className="max-container padding-container flex flex-col gap-20 py-10 pb-32 md:gap-28 lg:py-20"
-    >
-      <h2 className="text-4xl font-bold mt-8 mb-4">Some Sample Parts</h2>
-      <div ref={sliderRef} className={`keen-slider ${isDragging ? "is-dragging" : ""}`}>
-        {samples.map((sample) => (
-          <div key={sample.name} className="keen-slider__slide relative group border-2 border-gray-300 rounded-md p-2">
-            <img src={sample.image} alt={sample.name} className="object-cover object-center h-64 w-120" />
-            <p className="text-1xl text-gray-600 md:text-1xl xl:text-2xl group-hover:scale-105 transition-transform duration-200 ease-in-out">{sample.text}</p>
-          </div>
-        ))}
-      </div>
-    </section>
+<div className="mx-auto max-w-screen-lg">
+  <Carousel>
+    <CarouselPrevious />
+    <CarouselContent className="overflow-visible p-4">
+      {samples.map((sample) => (
+        <CarouselItem key={sample.name} className="w-1/3 border transform transition-transform duration-200 outline-transparent outline-2 mr-2">
+          <Image src={sample.image} alt={sample.name} width={500} height={300} className="object-cover object-center" />
+          <p className="text-1xl text-gray-600 md:text-1xl xl:text-2xl">{sample.text}</p>
+        </CarouselItem>
+      ))}
+    </CarouselContent>
+    <CarouselNext />
+  </Carousel>
+</div>
   );
 }
 
