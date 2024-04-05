@@ -20,6 +20,9 @@ const samples = [
 function SampleParts() {
   return (
 <div className="mx-auto max-w-screen-lg">
+<h1 className="text-4xl font-bold text-gray-800 md:text-5xl xl:text-5xl">
+        Some sample parts
+      </h1>
   <Carousel>
     <CarouselPrevious />
     <CarouselContent className="overflow-visible p-4">
