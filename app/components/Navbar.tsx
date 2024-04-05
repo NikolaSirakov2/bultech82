@@ -33,7 +33,7 @@ const Navbar = () => {
   return (
     <nav className="flexBetween max-container padding-container relative z-30 py-5">
       <Link href="/">
-        <Image src="/BultechLogo.jpg" alt="logo" width={144} height={69} />
+        <Image src="/Bultech82_logo.svg" alt="logo" width={144} height={69} />
       </Link>
 
       <ul className="hidden h-full gap-12 lg:flex">
