@@ -4,7 +4,7 @@ import Image from "next/image";
 
 function Hero() {
   return (
-    <section className="max-container padding-container flex flex-col gap-20 py-10 pb-32 md:gap-28 lg:py-20">
+    <section className="max-container padding-container flex flex-col gap-20 py-10 pb-8 md:gap-28 lg:py-20">
       <div className="flex flex-col gap-10 md:gap-12 xl:gap-16">
         
         <div className="flex flex-col gap-3">
