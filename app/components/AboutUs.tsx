@@ -4,7 +4,7 @@ const AboutUs = () => {
   return (
     <section
       id="about-us"
-      className="max-container padding-container flex flex-col gap-20 py-10 pb-32 md:gap-28 lg:py-20"
+      className="max-container padding-container flex flex-col gap-20 py-10 md:gap-28 lg:py-20"
     >
       <div className="flex flex-col md:flex-row gap-10 md:gap-12 xl:gap-16">
         <div className="flex flex-col gap-3 md:w-4/4">
@@ -12,7 +12,7 @@ const AboutUs = () => {
             About Us
           </h1>
 
-          <div className="flex md:flex-row">
+          <div className="flex flex-col md:flex-row gap-4 md:gap-0">
             <div className="relative h-106 w-full md:w-4/4">
               <img
                 src="/Bultech82_logo.svg"
