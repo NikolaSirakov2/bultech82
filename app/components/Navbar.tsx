@@ -78,7 +78,7 @@ const Navbar = () => {
             link.label === "Send us a request" ? (
               <Link href="/request" key={link.key} passHref>
                 <span 
-                  style={{ color: 'white', fontWeight: 'bold' }}
+                  style={{ color: 'white', fontWeight: 'bold', fontSize: '1.1rem'}}
                   className="regular-16 cursor-pointer pb-1.5 transition-all" 
                   onClick={toggleMenu}
                 >
