@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Image from "next/image";
+import "./ScrollToTop.css"; 
 
 export default function ScrollToTop() {
   const [isVisible, setIsVisible] = useState(false);
@@ -28,21 +29,7 @@ export default function ScrollToTop() {
 
   return (
     isVisible && (
-      <div
-        onClick={scrollToTop}
-        style={{
-          position: "fixed",
-          bottom: "20px",
-          right: "20px",
-          height: "72px",
-          width: "72px",
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-          borderRadius: "50%",
-          cursor: "pointer",
-        }}
-      >
+      <div onClick={scrollToTop} className="scrollToTop">
         <Image
           src="/scrolltotop.svg"
           alt="Scroll to top"
