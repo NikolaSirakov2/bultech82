@@ -19,23 +19,25 @@ const samples = [
 
 function SampleParts() {
   return (
-<div className="mx-auto max-w-screen-lg">
-<h1 className="text-4xl font-bold text-gray-800 md:text-5xl xl:text-5xl">
+    <div className="mx-auto max-w-screen-lg">
+      <h1 className="text-4xl font-bold text-gray-800 md:text-5xl xl:text-5xl pl-4">
         Some sample parts
       </h1>
-  <Carousel>
-    <CarouselPrevious />
-    <CarouselContent className="overflow-visible p-4">
-      {samples.map((sample) => (
-        <CarouselItem key={sample.name} className="w-1/4 border transform transition-transform duration-200 outline-transparent outline-2 mr-2">
-          <Image src={sample.image} alt={sample.name} width={500} height={300} className="object-cover object-center" />
-          <p className="text-1xl text-gray-600 md:text-1xl xl:text-2xl">{sample.text}</p>
-        </CarouselItem>
-      ))}
-    </CarouselContent>
-    <CarouselNext />
-  </Carousel>
-</div>
+      <Carousel>
+        <CarouselPrevious />
+        <CarouselContent className="overflow-visible p-4">
+          {samples.map((sample) => (
+            <CarouselItem key={sample.name} className="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/4 border transform transition-transform duration-200 outline-transparent outline-2 mr-2">
+              <div className="w-full h-64 relative">
+                <Image src={sample.image} alt={sample.name} layout="fill" className="absolute object-cover object-center" />
+              </div>
+              <p className="text-1xl text-gray-600 md:text-1xl xl:text-2xl">{sample.text}</p>
+            </CarouselItem>
+          ))}
+        </CarouselContent>
+        <CarouselNext />
+      </Carousel>
+    </div>
   );
 }
 
