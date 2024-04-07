@@ -10,8 +10,8 @@ function Processing() {
         Finishing processes
       </h1>
       <div className="flex flex-col md:flex-row gap-10 md:gap-12 xl:gap-16">
-        <div className="flex flex-row gap-3 md:w-4/4">
-          <div className="flex flex-col items-center space-y-4 md:flex-col">
+        <div className="flex flex-col md:flex-row gap-3 md:w-full">
+          <div className="flex flex-col items-center space-y-4 md:flex-col md:items-start">
             <div className="relative h-106 w-full md:w-3/4">
               <img
                 src="/Image4.jpg"
@@ -26,7 +26,7 @@ function Processing() {
             </p>
           </div>
 
-          <div className="flex flex-col items-center space-y-4 md:flex-col">
+          <div className="flex flex-col-reverse md:flex-col items-center space-y-4 md:items-start">
             <p className="text-1xl text-gray-600 md:text-1xl xl:text-2xl">
               Zincing, Nickel coating, Oxidation, Passivating, Phosphating
             </p>
