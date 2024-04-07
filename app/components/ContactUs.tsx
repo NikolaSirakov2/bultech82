@@ -6,7 +6,7 @@ const ContactUs = () => {
   return (
     <section
       id="contacts"
-      className="max-container padding-container flex flex-col gap-20 py-10 pb-32 md:gap-28 lg:py-20"
+      className="max-container padding-container flex flex-col gap-20 py-10 pb-16 md:gap-28 lg:py-20"
     >
       <div className="flex flex-col md:flex-row gap-10 md:gap-12 xl:gap-16">
         <div className="relative h-106 w-full md:w-1/2">
@@ -37,9 +37,7 @@ const ContactUs = () => {
             info@bultech82.com
           </p>
 
-          <Link href="/request">
-            <Button>Send us a message</Button>
-          </Link>
+          <button type="submit" className="bg-black text-white rounded-lg p-2 mb-4 w-full">Submit</button>
         </div>
       </div>
     </section>
