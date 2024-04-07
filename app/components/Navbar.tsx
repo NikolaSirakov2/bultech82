@@ -74,16 +74,28 @@ const Navbar = () => {
         }`}
       >
         <ul className={styles.menu}>
-          {NAV_LINKS.map((link) => (
-            <a
-              href={`#${link.href}`}
-              key={link.key}
-              className="regular-16 text-gray-50 cursor-pointer pb-1.5 transition-all hover:font-bold"
-              onClick={toggleMenu}
-            >
-              {link.label}
-            </a>
-          ))}
+          {NAV_LINKS.map((link) =>
+            link.label === "Send us a request" ? (
+              <Link href="/request" key={link.key} passHref>
+                <span 
+                  style={{ color: 'white', fontWeight: 'bold' }}
+                  className="regular-16 cursor-pointer pb-1.5 transition-all" 
+                  onClick={toggleMenu}
+                >
+                  {link.label}
+                </span>
+              </Link>
+            ) : (
+              <a
+                href={`#${link.href}`}
+                key={link.key}
+                className="regular-16 text-gray-50 cursor-pointer pb-1.5 transition-all hover:font-bold"
+                onClick={toggleMenu}
+              >
+                {link.label}
+              </a>
+            )
+          )}
         </ul>
       </div>
     </nav>
