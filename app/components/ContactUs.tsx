@@ -1,5 +1,6 @@
 import React from "react";
 import Button from "../../helpers/Button";
+import Link from "next/link";
 
 const ContactUs = () => {
   return (
@@ -36,7 +37,9 @@ const ContactUs = () => {
             info@bultech82.com
           </p>
 
-          <Button>Send us a message</Button>
+          <Link href="/request">
+            <Button>Send us a message</Button>
+          </Link>
         </div>
       </div>
     </section>
