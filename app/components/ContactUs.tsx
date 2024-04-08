@@ -37,7 +37,11 @@ const ContactUs = () => {
             info@bultech82.com
           </p>
 
-          <button type="submit" className="bg-black text-white rounded-lg p-2 mb-4 w-full">Submit</button>
+          <Link href="/request">
+            <button type="button" className="bg-black text-white rounded-lg p-2 mb-4 w-full">
+              Send us a message
+            </button>
+          </Link>
         </div>
       </div>
     </section>
