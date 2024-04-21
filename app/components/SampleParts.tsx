@@ -8,6 +8,7 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 import Image from "next/image";
+import ScrollToRight from "@/helpers/ScrollToRight";
 
 const samples = [
   {
@@ -53,7 +54,7 @@ function CardModal({ sample, onClose }: { sample: any, onClose: any }) {
         <Image
           src={sample.image}
           alt={sample.name}
-          width={850}
+          width={800}
           height={100}
           className="object-cover object-center"
         />
@@ -67,6 +68,19 @@ function CardModal({ sample, onClose }: { sample: any, onClose: any }) {
 
 function SampleParts() {
   const [selectedSample, setSelectedSample] = useState(null);
+  const [currentItem, setCurrentItem] = useState(0);
+
+  const handleNext = () => {
+    if (currentItem < samples.length - 1) {
+      setCurrentItem(currentItem + 1);
+    }
+  };
+
+  const handlePrevious = () => {
+    if (currentItem > 0) {
+      setCurrentItem(currentItem - 1);
+    }
+  };
 
   return (
     <div className="mx-auto max-w-screen-lg relative">
@@ -80,15 +94,16 @@ function SampleParts() {
         Some sample parts
       </h1>
       <Carousel>
-        <CarouselPrevious />
+        <CarouselPrevious onClick={handlePrevious} />
         <CarouselContent className="overflow-visible p-4">
-          {samples.map((sample) => (
+          {samples.map((sample, index) => (
             <CarouselItem
               key={sample.name}
               className="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/4 border transform transition-transform duration-200 outline-transparent outline-2 mr-2 hover:scale-105 hover:cursor-pointer"
               onMouseDown={() => setSelectedSample(sample)}
+              onVisible={() => setCurrentItem(index)}
             >
-              <div className="w-full h-64 relative">
+              <div className="w-full h-96 relative">
                 <Image
                   src={sample.image}
                   alt={sample.name}
@@ -102,8 +117,18 @@ function SampleParts() {
             </CarouselItem>
           ))}
         </CarouselContent>
-        <CarouselNext />
+        <CarouselNext onClick={handleNext} />
       </Carousel>
+      {currentItem < samples.length - 1 && (
+        <div className="absolute right-4 top-1/2 transform -translate-y-1/2 sm:hidden">
+          <Image
+            src="/scroll-right.svg"
+            alt="Scroll right"
+            width={24}
+            height={24}
+          />
+        </div>
+      )}
     </div>
   );
 }
