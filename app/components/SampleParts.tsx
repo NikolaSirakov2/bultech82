@@ -5,16 +5,40 @@ import {
   CarouselItem,
   CarouselNext,
   CarouselPrevious,
-} from "@/components/ui/carousel"
+} from "@/components/ui/carousel";
 import Image from "next/image";
 
 const samples = [
-  { name: "1", text: "Steel part, produced by turning, milling and zincing", image: "/image6.jpg" },
-  { name: "2", text: "Aluminum part, produced by laser cutting, tapping and anodizing",  image: "/image7.jpg" },
-  { name: "3", text: "Steel part, produced by laser cutting, tapping and zincing",  image: "/image8.jpg" },
-  { name: "4", text: "Steel part, produced by laser cutting, milling, tumbling and zincing", image: "/image9.jpg" },
-  { name: "5", text: "Stainless steel part, produced by laser cutting, bending and electropolishing", image: "/image10.jpg" },
-  { name: "6", text: "Steel part, produced by turning, milling and zincing", image: "/image11.png" },
+  {
+    name: "1",
+    text: "Steel part, produced by turning, milling and zincing",
+    image: "/image6.jpg",
+  },
+  {
+    name: "2",
+    text: "Aluminum part, produced by laser cutting, tapping and anodizing",
+    image: "/newElement1.jpg",
+  },
+  {
+    name: "3",
+    text: "Steel part, produced by laser cutting, tapping and zincing",
+    image: "/newElement2.jpg",
+  },
+  {
+    name: "4",
+    text: "Steel part, produced by laser cutting, milling, tumbling and zincing",
+    image: "/newElement3.jpg",
+  },
+  {
+    name: "5",
+    text: "Stainless steel part, produced by laser cutting, bending and electropolishing",
+    image: "/newElement4.jpg",
+  },
+  {
+    name: "6",
+    text: "Steel part, produced by turning, milling and zincing",
+    image: "/newElement5.jpg",
+  },
 ];
 
 function SampleParts() {
@@ -27,11 +51,22 @@ function SampleParts() {
         <CarouselPrevious />
         <CarouselContent className="overflow-visible p-4">
           {samples.map((sample) => (
-            <CarouselItem key={sample.name} className="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/4 border transform transition-transform duration-200 outline-transparent outline-2 mr-2">
+            <CarouselItem
+              key={sample.name}
+              className="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/4 border transform transition-transform duration-200 outline-transparent outline-2 mr-2 hover:scale-150 hover:z-50"
+              style={{ backdropFilter: "blur(5px)" }}
+            >
               <div className="w-full h-64 relative">
-                <Image src={sample.image} alt={sample.name} layout="fill" className="absolute object-cover object-center" />
+                <Image
+                  src={sample.image}
+                  alt={sample.name}
+                  layout="fill"
+                  className="absolute object-cover object-center"
+                />
               </div>
-              <p className="text-1xl text-gray-600 md:text-1xl xl:text-2xl">{sample.text}</p>
+              <p className="text-1xl text-gray-600 md:text-1xl xl:text-2xl">
+                {sample.text}
+              </p>
             </CarouselItem>
           ))}
         </CarouselContent>
