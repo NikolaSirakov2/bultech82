@@ -1,4 +1,5 @@
-import React from "react";
+"use client";
+import React, { useState } from "react";
 import {
   Carousel,
   CarouselContent,
@@ -41,9 +42,40 @@ const samples = [
   },
 ];
 
-function SampleParts() {
+function CardModal({ sample, onClose }: { sample: any, onClose: any }) {
   return (
-    <div className="mx-auto max-w-screen-lg">
+    <div
+      style={{ backgroundColor: 'rgba(0, 0, 0, 0.6)' }}
+      className="fixed top-0 left-0 w-full h-full z-50 flex items-center justify-center"
+      onClick={onClose}
+    >
+      <div className="bg-white p-4 rounded shadow-lg items-center">
+        <Image
+          src={sample.image}
+          alt={sample.name}
+          width={850}
+          height={100}
+          className="object-cover object-center"
+        />
+        <p className="text-1xl text-gray-600 md:text-1xl xl:text-2xl">
+          {sample.text}
+        </p>
+      </div>
+    </div>
+  );
+}
+
+function SampleParts() {
+  const [selectedSample, setSelectedSample] = useState(null);
+
+  return (
+    <div className="mx-auto max-w-screen-lg relative">
+      {selectedSample && (
+        <CardModal
+          sample={selectedSample}
+          onClose={() => setSelectedSample(null)}
+        />
+      )}
       <h1 className="text-4xl font-bold text-gray-800 md:text-5xl xl:text-5xl pl-4">
         Some sample parts
       </h1>
@@ -53,8 +85,8 @@ function SampleParts() {
           {samples.map((sample) => (
             <CarouselItem
               key={sample.name}
-              className="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/4 border transform transition-transform duration-200 outline-transparent outline-2 mr-2 hover:scale-150 hover:z-50"
-              style={{ backdropFilter: "blur(5px)" }}
+              className="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/4 border transform transition-transform duration-200 outline-transparent outline-2 mr-2 hover:scale-105 hover:cursor-pointer"
+              onMouseDown={() => setSelectedSample(sample)}
             >
               <div className="w-full h-64 relative">
                 <Image
