@@ -24,7 +24,15 @@ const RequestPage = () => {
   };
 
   return (
-    <div className="flex flex-col items-center px-4 sm:px-0">
+    <div
+      className="flex flex-col items-center px-4 sm:px-0"
+      style={{
+        backgroundImage: "url('/contact form background 5.jpg')",
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        minHeight: "100vh",
+      }}
+    >
       <Link href="/">
         <Image
           src="/Bultech82_logo.svg"
@@ -33,7 +41,8 @@ const RequestPage = () => {
           height={138}
         />
       </Link>
-      <form onSubmit={handleSubmit} className="w-full max-w-lg mt-8">
+      <div className="bg-white rounded-lg p-4 w-full max-w-3xl mt-8">
+      <form onSubmit={handleSubmit} className="w-full max-w-3xl mt-8 bg-white">
         <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
           <div className="flex flex-col w-full">
             <label htmlFor="email" className="mb-2">
@@ -71,7 +80,7 @@ const RequestPage = () => {
             onChange={(e) => setMessage(e.target.value)}
             required
             minLength={10}
-            className="border-2 border-gray-600 rounded-lg p-4 mb-4 w-full h-64 text-xl"
+            className="border-2 border-gray-600 rounded-lg p-4 mb-4 w-full h-96 text-xl"
           />
         </div>
         <button
@@ -81,6 +90,7 @@ const RequestPage = () => {
           Submit
         </button>
       </form>
+      </div>
     </div>
   );
 };

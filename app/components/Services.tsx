@@ -18,7 +18,7 @@ function Services() {
 
           <div className="relative h-106 w-full md:w-3/4">
             <img
-              src="/Image3.jpg"
+              src="/снимка 2.1.png"
               alt="Machine Parts"
               className="object-cover object-center h-full w-full"
             />
@@ -27,9 +27,9 @@ function Services() {
 
         <div className="flex flex-col md:flex-row gap-3 md:w-full">
           <div className="flex flex-col items-center space-y-4 md:flex-col md:items-start">
-            <div className="relative h-106 w-full md:w-3/4">
+            <div className="relative h-106 w-full md:w-full">
               <img
-                src="/Image2.jpg"
+                src="/снимка 3.1.png"
                 alt="Machine Parts"
                 className="object-cover object-center h-full w-full"
               />

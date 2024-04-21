@@ -10,34 +10,34 @@ function Processing() {
         Finishing processes
       </h1>
       <div className="flex flex-col md:flex-row gap-10 md:gap-12 xl:gap-16">
+        <div className="flex flex-col-reverse md:flex-col items-center space-y-4 md:items-start">
+          <p className="text-1xl text-gray-600 md:text-1xl xl:text-2xl">
+          Anodizing, Electropolish, Powder coating, <br />Tampon printing/Pad
+              printing
+          </p>
+
+          <div className="relative h-106 w-full md:w-3/4">
+            <img
+              src="/снимка 4.1.png"
+              alt="Machine Parts"
+              className="object-cover object-center h-full w-full"
+            />
+          </div>
+        </div>
+
         <div className="flex flex-col md:flex-row gap-3 md:w-full">
           <div className="flex flex-col items-center space-y-4 md:flex-col md:items-start">
-            <div className="relative h-106 w-full md:w-3/4">
+            <div className="relative h-106 w-full md:w-full">
               <img
-                src="/Image4.jpg"
+                src="/снимка 5.1.png"
                 alt="Machine Parts"
                 className="object-cover object-center h-full w-full"
               />
             </div>
 
             <p className="text-1xl text-gray-600 md:text-1xl xl:text-2xl">
-              Anodizing, Electropolish, Powder coating, <br />Tampon printing/Pad
-              printing
+            Zincing, Nickel coating, Oxidation, Passivating, Phosphating
             </p>
-          </div>
-
-          <div className="flex flex-col-reverse md:flex-col items-center space-y-4 md:items-start">
-            <p className="text-1xl text-gray-600 md:text-1xl xl:text-2xl">
-              Zincing, Nickel coating, Oxidation, Passivating, Phosphating
-            </p>
-
-            <div className="relative h-106 w-full md:w-3/4">
-              <img
-                src="/Image5.jpg"
-                alt="Machine Parts"
-                className="object-cover object-center h-full w-full"
-              />
-            </div>
           </div>
         </div>
       </div>

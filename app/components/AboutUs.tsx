@@ -22,19 +22,22 @@ const AboutUs = () => {
             </div>
 
             <p className="text-1xl text-gray-600 md:text-1xl xl:text-2xl">
-              Bultech 82 Ltd was established in Plovdiv, Bulgaria, in 2023.As an
-              OEM supplier, we are using various manufacturing processes and
-              post-processing techniques to produce a wide range of parts used in
-              machine building, furniture production, food industry, construction,
-              and many other sectors.
+              Bultech 82 Ltd was established in 2023 in Plovdiv, which is the
+              second largest city in the country and a center of the biggest
+              industrial area in Bulgaria. As an OEM supplier, we are using
+              various manufacturing processes and post-processing techniques to
+              produce a wide range of parts used in machine building, furniture
+              production, food industry, construction, and many other sectors.
             </p>
           </div>
 
           <div>
             <p className="text-1xl text-gray-600 md:text-1xl xl:text-2xl">
-              No matter if your project needs a single part or a mass-produced
-              item, Bultech 82 will help you achieve your goals. We will be glad
-              to check your requests.
+              No matter if your project needs a single part, a mass-produced
+              item or you need to build a tool and develop a production process,
+              Bultech 82 will help you achieve your goals, so don`t hesitate to
+              contact us! We will be glad to check your requests and send you a
+              feedback.
             </p>
           </div>
         </div>
