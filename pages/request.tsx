@@ -41,7 +41,7 @@ const RequestPage = () => {
           height={138}
         />
       </Link>
-      <div className="bg-white rounded-lg p-4 w-full max-w-3xl mt-8">
+      <div className="bg-white border border-black rounded-lg p-4 w-full max-w-3xl mt-8">
       <form onSubmit={handleSubmit} className="w-full max-w-3xl mt-8 bg-white">
         <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
           <div className="flex flex-col w-full">
