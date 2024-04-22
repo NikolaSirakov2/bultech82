@@ -42,7 +42,7 @@ const Navbar = () => {
             <Link
               href="/request"
               key={link.key}
-              className="text-xl text-gray-700 cursor-pointer pb-1.5 transition-all hover:font-bold"
+              className="text-xl text-gray-700 cursor-pointer pb-1.5 hover:font-bold"
             >
               {link.label}
             </Link>
@@ -50,7 +50,7 @@ const Navbar = () => {
             <a
               href={`#${link.href}`}
               key={link.key}
-              className="text-xl text-gray-700 cursor-pointer pb-1.5 transition-all hover:font-bold"
+              className="text-xl text-gray-700 cursor-pointer pb-1.5 hover:font-bold"
               onClick={toggleMenu}
             >
               {link.label}
@@ -79,7 +79,7 @@ const Navbar = () => {
               <Link href="/request" key={link.key} passHref>
                 <span 
                   style={{ color: 'white', fontWeight: 'bold', fontSize: '1.1rem'}}
-                  className="regular-16 cursor-pointer pb-1.5 transition-all" 
+                  className="regular-16 cursor-pointer pb-1.5" 
                   onClick={toggleMenu}
                 >
                   {link.label}
@@ -89,7 +89,7 @@ const Navbar = () => {
               <a
                 href={`#${link.href}`}
                 key={link.key}
-                className="regular-16 text-gray-50 cursor-pointer pb-1.5 transition-all hover:font-bold"
+                className="regular-16 text-gray-50 cursor-pointer pb-1.5 hover:font-bold"
                 onClick={toggleMenu}
               >
                 {link.label}
