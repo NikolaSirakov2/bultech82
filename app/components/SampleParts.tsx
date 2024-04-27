@@ -12,32 +12,32 @@ import Image from "next/image";
 const samples = [
   {
     name: "1",
-    text: "Steel part, produced by turning, milling and zincing",
+    text: "Steel S235JR\nTurning, Milling\nZincing (not shown on the picture)",
     image: "/image6.jpg",
   },
   {
     name: "2",
-    text: "Aluminum part, produced by laser cutting, tapping and anodizing",
+    text: "Stainless Steel 304\nLaser cutting, CNC Bending, Manual deburring and cleaning\nElectropolishing",
     image: "/newElement1.jpg",
   },
   {
     name: "3",
-    text: "Steel part, produced by laser cutting, tapping and zincing",
+    text: "Aluminium EN AW-5754\nLaser cutting, Deburring, Milling\nAnodising (black)",
     image: "/newElement2.jpg",
   },
   {
     name: "4",
-    text: "Steel part, produced by laser cutting, milling, tumbling and zincing",
+    text: "Steel S235JR\nLaser cutting, CNC Bending, Manual deburring and cleaning\nPowder coating RAL 9005, high gloss",
     image: "/newElement3.jpg",
   },
   {
     name: "5",
-    text: "Stainless steel part, produced by laser cutting, bending and electropolishing",
+    text: "Steel S235JR\nLaser cutting, CNC Milling, Tumbling\nZincing",
     image: "/newElement4.jpg",
   },
   {
     name: "6",
-    text: "Steel part, produced by turning, milling and zincing",
+    text: "Aluminium EN AW-6082\nLaser cutting, Manual deburring and cleaning, Tapping\nAnodising (natural)",
     image: "/newElement5.jpg",
   },
 ];
@@ -53,11 +53,14 @@ function CardModal({ sample, onClose }: { sample: any; onClose: any }) {
         <Image
           src={sample.image}
           alt={sample.name}
-          width={800}
-          height={100}
+          width={500}
+          height={50}
           className="object-cover object-center"
         />
-        <p className="text-1xl text-gray-600 md:text-1xl xl:text-2xl">
+        <p
+          style={{ whiteSpace: "pre-line" }}
+          className="text-sm text-gray-600 md:text-sm xl:text-sm"
+        >
           {sample.text}
         </p>
       </div>
@@ -95,8 +98,32 @@ function SampleParts() {
                   layout="fill"
                   className="absolute object-cover object-center"
                 />
+                {index !== samples.length - 1 && (
+                  <div className="absolute right-4 top-1/2 transform -translate-y-1/2 sm:hidden">
+                    <Image
+                      src="/scroll-right.svg"
+                      alt="Scroll right"
+                      width={24}
+                      height={24}
+                    />
+                  </div>
+                )}
+                {index !== 0 && (
+                  <div className="absolute left-4 top-1/2 transform -translate-y-1/2 sm:hidden">
+                    <Image
+                      src="/scroll-right.svg"
+                      alt="Scroll left"
+                      width={24}
+                      height={24}
+                      className="transform rotate-180"
+                    />
+                  </div>
+                )}
               </div>
-              <p className="text-1xl text-gray-600 md:text-1xl xl:text-2xl">
+              <p
+                style={{ whiteSpace: "pre-line" }}
+                className="text-sm text-gray-600 md:text-sm xl:text-sm"
+              >
                 {sample.text}
               </p>
             </CarouselItem>
@@ -104,14 +131,6 @@ function SampleParts() {
         </CarouselContent>
         <CarouselNext />
       </Carousel>
-      <div className="absolute right-4 top-1/2 transform -translate-y-1/2 sm:hidden">
-        <Image
-          src="/scroll-right.svg"
-          alt="Scroll right"
-          width={24}
-          height={24}
-        />
-      </div>
     </div>
   );
 }
