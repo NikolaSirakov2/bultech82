@@ -42,6 +42,12 @@ const samples = [
   },
 ];
 
+type Sample = {
+  name: string;
+  text: string;
+  image: string;
+};
+
 function CardModal({ sample, onClose }: { sample: any; onClose: any }) {
   return (
     <div
@@ -69,7 +75,7 @@ function CardModal({ sample, onClose }: { sample: any; onClose: any }) {
 }
 
 function SampleParts() {
-  const [selectedSample, setSelectedSample] = useState(null);
+  const [selectedSample, setSelectedSample] = useState<Sample | null>(null);
 
   return (
     <div className="mx-auto max-w-screen-lg relative">
