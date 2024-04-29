@@ -13,7 +13,7 @@ const samples = [
   {
     name: "1",
     text: "Steel S235JR\nTurning, Milling\nZincing (not shown on the picture)",
-    image: "/image6.jpg",
+    image: "/newElement6.jpg",
   },
   {
     name: "2",
