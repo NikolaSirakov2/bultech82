@@ -12,32 +12,32 @@ import Image from "next/image";
 const samples = [
   {
     name: "1",
-    text: "Steel S235JR\nTurning, Milling\nZincing (not shown on the picture)",
+    text: "Material: Steel S235JR\nProduction process: Turning, Milling\nPost process: Zincing (not shown on the picture)",
     image: "/newElement6.jpg",
   },
   {
     name: "2",
-    text: "Stainless Steel 304\nLaser cutting, CNC Bending, Manual deburring and cleaning\nElectropolishing",
+    text: "Material: Stainless Steel 304\nProduction process: Laser cutting, CNC Bending, Manual deburring and cleaning\nPost process: Electropolishing",
     image: "/newElement1.jpg",
   },
   {
     name: "3",
-    text: "Aluminium EN AW-5754\nLaser cutting, Deburring, Milling\nAnodising (black)",
+    text: "Material: Aluminium EN AW-5754\nProduction process: Laser cutting, Deburring, Milling\nPost process: Anodising (black)",
     image: "/newElement2.jpg",
   },
   {
     name: "4",
-    text: "Steel S235JR\nLaser cutting, CNC Bending, Manual deburring and cleaning\nPowder coating RAL 9005, high gloss",
+    text: "Material: Steel S235JR\nProduction process: Laser cutting, CNC Bending,\nManual deburring and cleaning\nPost process: Powder coating RAL 9005, high gloss",
     image: "/newElement3.jpg",
   },
   {
     name: "5",
-    text: "Steel S235JR\nLaser cutting, CNC Milling, Tumbling\nZincing",
+    text: "Material: Steel S235JR\nProduction process: Laser cutting, CNC Milling, Tumbling\nPost process: Zincing",
     image: "/newElement4.jpg",
   },
   {
     name: "6",
-    text: "Aluminium EN AW-6082\nLaser cutting, Manual deburring and cleaning, Tapping\nAnodising (natural)",
+    text: "Material: Aluminium EN AW-6082\nProduction process: Laser cutting, Manual deburring and cleaning, Tapping\nPost process: Anodising (natural)",
     image: "/newElement5.jpg",
   },
 ];

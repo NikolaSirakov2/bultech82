@@ -30,7 +30,7 @@ const ContactUs = () => {
           </p>
 
           <p className="text-1xl text-gray-600 md:text-1xl xl:text-2xl">
-            +359892440113
+            +359 88 999 25 65
           </p>
 
           <p className="text-1xl text-gray-600 md:text-1xl xl:text-2xl">
