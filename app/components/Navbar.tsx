@@ -6,11 +6,12 @@ import { useEffect, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { NAV_LINKS, NAV_LINKS_BG } from "@/constants/navLinks";
+import { useLanguage } from './LanguageContext';
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const menuRef = useRef<HTMLDivElement | null>(null);
-  const [language, setLanguage] = useState("BG");
+  const { language, setLanguage } = useLanguage();
 
   const toggleMenu = () => {
     if (window.innerWidth <= 524) {

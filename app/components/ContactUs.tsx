@@ -1,8 +1,16 @@
-import React from "react";
-import Button from "../../helpers/Button";
+import React, { useContext } from "react";
 import Link from "next/link";
+import { LanguageContext } from "./LanguageContext";
 
 const ContactUs = () => {
+  const context = useContext(LanguageContext);
+
+  if (!context) {
+    throw new Error("ContactUs must be used within a LanguageProvider");
+  }
+
+  const { language } = context;
+
   return (
     <section
       id="contacts"
@@ -18,28 +26,28 @@ const ContactUs = () => {
         </div>
         <div className="flex flex-col gap-3 md:w-1/2">
           <h1 className="text-4xl font-bold text-gray-800 md:text-5xl xl:text-6xl">
-            Contact Us
+            {language === 'BG' ? 'Contact Us' : 'Контакти'}
           </h1>
 
           <p className="text-1xl text-gray-600 md:text-1xl xl:text-2xl">
-            Plovdiv, Bulgaria.
+            {language === 'BG' ? 'Plovdiv, Bulgaria.' : 'Пловдив, България'}
           </p>
 
           <p className="text-1xl text-gray-600 md:text-1xl xl:text-2xl">
-            Trakia, Industrial Zone, 4023
+            {language === 'BG' ? 'Trakia, Industrial Zone, 4023' : 'Тракия, Индустриална зона, 4023'}
           </p>
 
           <p className="text-1xl text-gray-600 md:text-1xl xl:text-2xl">
-            +359 88 999 25 65
+            {language === 'BG' ? '+359 88 999 25 65' : '+359 88 999 25 65'}
           </p>
 
           <p className="text-1xl text-gray-600 md:text-1xl xl:text-2xl">
-            info@bultech82.com
+            {language === 'BG' ? 'info@bultech82.com' : 'info@bultech82.com'}
           </p>
 
           <Link href="/request">
             <button type="button" className="bg-black text-white rounded-lg p-2 mb-4 w-full">
-              Send us a message
+              {language === 'BG' ? 'Send us a message' : 'Изпратете запитване'}
             </button>
           </Link>
         </div>

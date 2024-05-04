@@ -1,19 +1,28 @@
-import React from "react";
+import React, { useContext } from "react";
+import { LanguageContext } from "./LanguageContext";
 
 function Processing() {
+  const context = useContext(LanguageContext);
+
+  if (!context) {
+    throw new Error("Processing must be used within a LanguageProvider");
+  }
+
+  const { language } = context;
+
   return (
     <section
       id="services"
       className="max-container padding-container flex flex-col gap-20 py-10 pb-32 md:gap-28 lg:py-20"
     >
       <h1 className="text-4xl font-bold text-gray-800 md:text-5xl xl:text-5xl">
-        Finishing processes
+        {language === 'BG' ? 'Finishing processes' : 'Довършителни процеси'}
       </h1>
       <div className="flex flex-col md:flex-row gap-10 md:gap-12 xl:gap-16">
         <div className="flex flex-col-reverse md:flex-col items-center space-y-4 md:items-start">
           <p className="text-1xl text-gray-600 md:text-1xl xl:text-2xl">
-          Anodizing, Electropolish, Powder coating, <br />Tampon printing/Pad
-              printing
+            {language === 'BG' ? 'Anodizing, Electropolish, Powder coating, ' : 'Анодиране, Електрополиране, Прахово боядисване,'}<br />
+            {language === 'BG' ? 'Tampon printing/Pad printing' : 'Тампон печат'}
           </p>
 
           <div className="relative h-106 w-full md:w-3/4">
@@ -36,7 +45,7 @@ function Processing() {
             </div>
 
             <p className="text-1xl text-gray-600 md:text-1xl xl:text-2xl">
-            Zincing, Nickel coating, Oxidation, Passivating, Phosphating
+              {language === 'BG' ? 'Zincing, Nickel coating, Oxidation, Passivating, Phosphating' : 'Поцинковане, Никелиране, Оксидация, Пасивация, Фосфатиране'}
             </p>
           </div>
         </div>
