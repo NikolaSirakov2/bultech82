@@ -5,16 +5,21 @@ import { useState } from "react";
 import { useEffect, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { NAV_LINKS } from "@/constants/navLinks";
+import { NAV_LINKS, NAV_LINKS_BG } from "@/constants/navLinks";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const menuRef = useRef<HTMLDivElement | null>(null);
+  const [language, setLanguage] = useState("BG");
 
   const toggleMenu = () => {
     if (window.innerWidth <= 524) {
       setIsMenuOpen(!isMenuOpen);
     }
+  };
+
+  const toggleLanguage = () => {
+    setLanguage(language === "BG" ? "EN" : "BG");
   };
 
   useEffect(() => {
@@ -37,7 +42,7 @@ const Navbar = () => {
       </Link>
 
       <ul className="hidden h-full gap-12 lg:flex">
-        {NAV_LINKS.map((link) =>
+        {(language === "EN" ? NAV_LINKS_BG : NAV_LINKS).map((link) =>
           link.label === "Send us a request" ? (
             <Link
               href="/request"
@@ -59,6 +64,13 @@ const Navbar = () => {
         )}
       </ul>
 
+      <button
+        onClick={toggleLanguage}
+        className={`${styles["language-toggle"]} text-xl text-gray-700 cursor-pointer pb-1.5 hover:font-bold`}
+      >
+        {language}
+      </button>
+
       <Image
         src="/menu.svg"
         alt="menu"
@@ -73,30 +85,42 @@ const Navbar = () => {
           isMenuOpen ? styles.open : ""
         }`}
       >
-        <ul className={styles.menu}>
-          {NAV_LINKS.map((link) =>
-            link.label === "Send us a request" ? (
-              <Link href="/request" key={link.key} passHref>
-                <span 
-                  style={{ color: 'white', fontWeight: 'bold', fontSize: '1.1rem'}}
-                  className="regular-16 cursor-pointer pb-1.5" 
-                  onClick={toggleMenu}
-                >
-                  {link.label}
-                </span>
-              </Link>
-            ) : (
-              <a
-                href={`#${link.href}`}
-                key={link.key}
-                className="regular-16 text-gray-50 cursor-pointer pb-1.5 hover:font-bold"
-                onClick={toggleMenu}
-              >
-                {link.label}
-              </a>
-            )
-          )}
-        </ul>
+      <ul className={styles.menu}>
+      {(language === "EN" ? NAV_LINKS_BG : NAV_LINKS).map((link) => // use language state to decide which links to display
+        link.label === "Send us a request" ? (
+          <Link href="/request" key={link.key} passHref>
+            <span
+              style={{
+                color: "white",
+                fontWeight: "bold",
+                fontSize: "1.1rem",
+              }}
+              className="regular-16 cursor-pointer pb-1.5"
+              onClick={toggleMenu}
+            >
+              {link.label}
+            </span>
+          </Link>
+        ) : (
+          <a
+            href={`#${link.href}`}
+            key={link.key}
+            className="regular-16 text-gray-50 cursor-pointer pb-1.5 hover:font-bold"
+            onClick={toggleMenu}
+          >
+            {link.label}
+          </a>
+        )
+      )}
+      <li>
+        <button
+          onClick={toggleLanguage}
+          className="regular-16 text-white cursor-pointer pb-1.5 hover:font-bold"
+        >
+          {language}
+        </button>
+      </li>
+    </ul>
       </div>
     </nav>
   );
