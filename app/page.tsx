@@ -4,11 +4,13 @@ import Hero from "@/app/components/Hero";
 import Services from "@/app/components/Services";
 import Processing from "@/app/components/Processing";
 import SampleParts from "@/app/components/SampleParts";
+import Navbar from "@/app/components/Navbar"; 
 import React from "react";
 
 export default function Home() {
   return (
     <>
+      <Navbar /> 
       <div id="hero"><Hero /></div>
       <div id="about-us"><AboutUs /></div>
       <div id="production-processes"><Services /></div>
