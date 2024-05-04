@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import Navbar from "@/app/components/Navbar";
 import ScrollToTop from "@/helpers/ScrollToTop";
 import { cn } from "@/lib/utils";
 
@@ -20,7 +19,6 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={cn("bg-background min-h-screen font-sans antialiased", inter.variable)}>
-        <Navbar />
         <main className="relative overflow-hidden">{children}</main>
         <ScrollToTop />
       </body>
