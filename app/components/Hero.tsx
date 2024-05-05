@@ -1,16 +1,16 @@
-import React, { useContext } from "react";
+import React, { useState, useEffect } from "react";
 import style from "../styles/Hero.module.css";
 import Image from "next/image";
-import { LanguageContext } from "./LanguageContext";
+import { useLanguage } from "./LanguageContext";
 
 function Hero() {
-  const context = useContext(LanguageContext);
+  const { language: initialLanguage } = useLanguage();
+  const [language, setLanguage] = useState(initialLanguage);
 
-  if (!context) {
-    throw new Error("Hero must be used within a LanguageProvider");
-  }
-
-  const { language } = context;
+  useEffect(() => {
+    const savedLanguage = localStorage.getItem('language');
+    setLanguage(savedLanguage || initialLanguage);
+  }, [initialLanguage]);
 
   return (
     <section className="max-container padding-container flex flex-col gap-20 py-10 pb-8 md:gap-28 lg:py-20">

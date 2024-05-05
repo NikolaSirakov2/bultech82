@@ -1,15 +1,15 @@
-import React, { useContext } from "react";
+import React, { useState, useEffect } from "react";
+import { useLanguage } from "./LanguageContext";
 import Link from "next/link";
-import { LanguageContext } from "./LanguageContext";
 
 const ContactUs = () => {
-  const context = useContext(LanguageContext);
+  const { language: initialLanguage } = useLanguage();
+  const [language, setLanguage] = useState(initialLanguage);
 
-  if (!context) {
-    throw new Error("ContactUs must be used within a LanguageProvider");
-  }
-
-  const { language } = context;
+  useEffect(() => {
+    const savedLanguage = localStorage.getItem('language');
+    setLanguage(savedLanguage || initialLanguage);
+  }, [initialLanguage]);
 
   return (
     <section

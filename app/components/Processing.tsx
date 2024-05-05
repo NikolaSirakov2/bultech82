@@ -1,14 +1,14 @@
-import React, { useContext } from "react";
-import { LanguageContext } from "./LanguageContext";
+import React, { useState, useEffect } from "react";
+import { useLanguage } from "./LanguageContext";
 
 function Processing() {
-  const context = useContext(LanguageContext);
+  const { language: initialLanguage } = useLanguage();
+  const [language, setLanguage] = useState(initialLanguage);
 
-  if (!context) {
-    throw new Error("Processing must be used within a LanguageProvider");
-  }
-
-  const { language } = context;
+  useEffect(() => {
+    const savedLanguage = localStorage.getItem('language');
+    setLanguage(savedLanguage || initialLanguage);
+  }, [initialLanguage]);
 
   return (
     <section
