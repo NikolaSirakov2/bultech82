@@ -8,7 +8,7 @@ interface LanguageContextValue {
 
 const LanguageContext = createContext<LanguageContextValue | undefined>(undefined);
 
-export const LanguageProvider = ({ children }) => {
+export const LanguageProvider = ({ children }: { children: React.ReactNode }) => {
   const [language, setLanguage] = useState(() => typeof window !== 'undefined' ? localStorage.getItem('language') || 'BG' : 'BG');
 
   useEffect(() => {
