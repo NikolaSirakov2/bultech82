@@ -38,7 +38,7 @@ const samples = [
   {
     name: "5",
     text: "Material: Steel S235JR\nProduction process: Laser cutting, CNC Milling, Tumbling\nPost process: Zincing",
-    textBg: "Материал: Стомана S235JR\nПроцес на производство: Лазерно рязане, CNC Фрезоване, Полиране\nПоследваща обработка: Поцинковане",
+    textBG: "Материал: Стомана S235JR\nПроцес на производство: Лазерно рязане, CNC Фрезоване, Полиране\nПоследваща обработка: Поцинковане",
     image: "/newElement4.jpg",
   },
   {
@@ -81,7 +81,7 @@ function CardModal({ sample, onClose }: { sample: any; onClose: any }) {
           style={{ whiteSpace: "pre-line" }}
           className="text-sm text-gray-600 md:text-sm xl:text-sm"
         >
-          {sample.text}
+          {language === "BG" ? sample.text : sample.textBG}
         </p>
       </div>
     </div>
