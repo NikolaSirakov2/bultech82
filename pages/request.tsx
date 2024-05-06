@@ -1,12 +1,14 @@
 import "../app/globals.css";
 import Image from "next/image";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 
 const RequestPage = () => {
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
   const [file, setFile] = useState<File | null>(null);
+  const [language, setLanguage] = useState<string | null>(null);
+  
 
   const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const file = event.target.files?.[0];
@@ -16,6 +18,13 @@ const RequestPage = () => {
       alert("Invalid file format");
     }
   };
+
+  useEffect(() => {
+    const storedLanguage = localStorage.getItem("language");
+    if (storedLanguage) {
+      setLanguage(storedLanguage);
+    }
+  }, []);
 
   return (
     <div
@@ -39,9 +48,9 @@ const RequestPage = () => {
       <form method="POST" action="https://formsubmit.co/info@bultech82.com" className="w-full max-w-3xl mt-8 bg-white">
         <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
           <div className="flex flex-col w-full">
-            <label htmlFor="email" className="mb-2">
-              Email
-            </label>
+          <label htmlFor="email" className="mb-2">
+      {language === "BG" ? "Email" : "Имейл"}
+    </label>
             <input
               name="email"
               type="email"
@@ -53,9 +62,9 @@ const RequestPage = () => {
             />
           </div>
           <div className="flex flex-col w-full">
-            <label htmlFor="file" className="mb-2">
-              File
-            </label>
+          <label htmlFor="file" className="mb-2">
+      {language === "BG" ? "File" : "Файл"}
+    </label>
             <input
               name="file"
               type="file"
@@ -65,9 +74,9 @@ const RequestPage = () => {
           </div>
         </div>
         <div className="flex flex-col w-full">
-          <label htmlFor="message" className="mb-2">
-            Message
-          </label>
+        <label htmlFor="message" className="mb-2">
+      {language === "BG" ? "Message" : "Съобщение"}
+    </label>
           <textarea
             name="message"
             value={message}
@@ -81,7 +90,7 @@ const RequestPage = () => {
           type="submit"
           className="bg-black text-white rounded-lg p-4 mb-4 w-full text-xl"
         >
-          Submit
+          {language === "BG" ? "Submit" : "Изпрати"}
         </button>
       </form>
       </div>
