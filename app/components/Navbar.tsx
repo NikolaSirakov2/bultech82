@@ -75,11 +75,11 @@ const Navbar = () => {
       </ul>
 
       <button
-        onClick={toggleLanguage}
-        className={`${styles["language-toggle"]} text-xl text-gray-700 cursor-pointer pb-1.5 hover:font-bold`}
-      >
-        {language}
-      </button>
+  onClick={toggleLanguage}
+  className={`${styles["language-toggle"]} text-2xl bg-black text-white cursor-pointer pb-1.5 px-3 py-2 font-bold hover:font-bold rounded-lg`}
+>
+  {language}
+</button>
 
       <Image
         src="/menu.svg"
@@ -125,7 +125,7 @@ const Navbar = () => {
           <li>
             <button
               onClick={toggleLanguage}
-              className="regular-16 text-white cursor-pointer pb-1.5 hover:font-bold"
+              className="text-2xl text-white cursor-pointer pb-1.5 hover:font-bold"
             >
               {language}
             </button>
