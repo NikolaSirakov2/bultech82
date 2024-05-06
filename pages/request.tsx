@@ -36,7 +36,7 @@ const RequestPage = () => {
         />
       </Link>
       <div className="bg-white border border-black rounded-lg p-4 w-full max-w-3xl mt-8">
-      <form method="POST" action="https://formsubmit.co/nikolascoaching@gmail.com" className="w-full max-w-3xl mt-8 bg-white">
+      <form method="POST" action="https://formsubmit.co/info@bultech82.com" className="w-full max-w-3xl mt-8 bg-white">
         <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
           <div className="flex flex-col w-full">
             <label htmlFor="email" className="mb-2">
