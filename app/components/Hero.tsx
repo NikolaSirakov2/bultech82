@@ -1,16 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import style from "../styles/Hero.module.css";
 import Image from "next/image";
 import { useLanguage } from "./LanguageContext";
 
 function Hero() {
-  const { language: initialLanguage } = useLanguage();
-  const [language, setLanguage] = useState(initialLanguage);
-
-  useEffect(() => {
-    const savedLanguage = localStorage.getItem('language');
-    setLanguage(savedLanguage || initialLanguage);
-  }, [initialLanguage]);
+  const { language } = useLanguage();
 
   return (
     <section className="max-container padding-container flex flex-col gap-20 py-10 pb-8 md:gap-28 lg:py-20">
