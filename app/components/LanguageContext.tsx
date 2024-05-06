@@ -9,14 +9,16 @@ interface LanguageContextValue {
 const LanguageContext = createContext<LanguageContextValue | undefined>(undefined);
 
 export const LanguageProvider = ({ children }: { children: React.ReactNode }) => {
- const [language, setLanguage] = useState('BG'); // default language
+  const [language, setLanguage] = useState(() => {
+    if (typeof window !== 'undefined') {
+      return localStorage.getItem('language') || 'BG';
+    }
+    return 'BG';
+  });
 
-useEffect(() => {
-  const storedLanguage = typeof window !== 'undefined' ? localStorage.getItem('language') : 'BG';
-  if (storedLanguage) {
-    setLanguage(storedLanguage);
-  }
-}, []);
+  useEffect(() => {
+    localStorage.setItem('language', language);
+  }, [language]);
 
   return (
     <LanguageContext.Provider value={{ language, setLanguage }}>
