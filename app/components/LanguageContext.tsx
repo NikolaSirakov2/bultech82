@@ -1,15 +1,14 @@
 "use client"
-import React, { createContext, useState, useContext } from 'react';
+import React, { createContext, useState, useContext, useEffect } from 'react';
 
-interface LanguageContextProps {
-  language: string;
-  setLanguage: React.Dispatch<React.SetStateAction<string>>;
-}
+const LanguageContext = createContext();
 
-export const LanguageContext = createContext<LanguageContextProps | undefined>(undefined);
+export const LanguageProvider = ({ children }) => {
+  const [language, setLanguage] = useState(() => localStorage.getItem('language') || 'BG');
 
-export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  const [language, setLanguage] = useState('BG');
+  useEffect(() => {
+    localStorage.setItem('language', language);
+  }, [language]);
 
   return (
     <LanguageContext.Provider value={{ language, setLanguage }}>
@@ -18,10 +17,4 @@ export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ chil
   );
 };
 
-export const useLanguage = () => {
-  const context = useContext(LanguageContext);
-  if (!context) {
-    throw new Error('useLanguage must be used within a LanguageProvider');
-  }
-  return context;
-};
+export const useLanguage = () => useContext(LanguageContext);
