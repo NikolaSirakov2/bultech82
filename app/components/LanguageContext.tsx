@@ -1,5 +1,5 @@
-"use client"
 import React, { createContext, useState, useContext, useEffect } from 'react';
+import Cookies from 'js-cookie';
 
 interface LanguageContextValue {
   language: string;
@@ -8,17 +8,8 @@ interface LanguageContextValue {
 
 const LanguageContext = createContext<LanguageContextValue | undefined>(undefined);
 
-export const LanguageProvider = ({ children }: { children: React.ReactNode }) => {
-  const [language, setLanguage] = useState(() => {
-    if (typeof window !== 'undefined') {
-      return localStorage.getItem('language') || 'BG';
-    }
-    return 'BG';
-  });
-
-  useEffect(() => {
-    localStorage.setItem('language', language);
-  }, [language]);
+export const LanguageProvider = ({ children, initialLanguage }: { children: React.ReactNode, initialLanguage: string }) => {
+  const [language, setLanguage] = useState(initialLanguage);
 
   return (
     <LanguageContext.Provider value={{ language, setLanguage }}>

@@ -3,13 +3,7 @@ import { useLanguage } from "./LanguageContext";
 import Link from "next/link";
 
 const ContactUs = () => {
-  const { language: initialLanguage } = useLanguage();
-  const [language, setLanguage] = useState(initialLanguage);
-
-  useEffect(() => {
-    const savedLanguage = localStorage.getItem('language');
-    setLanguage(savedLanguage || initialLanguage);
-  }, [initialLanguage]);
+  const { language } = useLanguage();
 
   return (
     <section

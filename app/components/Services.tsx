@@ -2,13 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useLanguage } from "./LanguageContext";
 
 function Services() {
-  const { language: initialLanguage } = useLanguage();
-  const [language, setLanguage] = useState(initialLanguage);
-
-  useEffect(() => {
-    const savedLanguage = localStorage.getItem('language');
-    setLanguage(savedLanguage || initialLanguage);
-  }, [initialLanguage]);
+  const { language } = useLanguage();
 
   return (
     <section

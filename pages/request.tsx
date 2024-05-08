@@ -8,7 +8,6 @@ const RequestPage = () => {
   const [message, setMessage] = useState("");
   const [file, setFile] = useState<File | null>(null);
   const [language, setLanguage] = useState<string | null>(null);
-  
 
   const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const file = event.target.files?.[0];
@@ -18,13 +17,6 @@ const RequestPage = () => {
       alert("Invalid file format");
     }
   };
-
-  useEffect(() => {
-    const storedLanguage = localStorage.getItem("language");
-    if (storedLanguage) {
-      setLanguage(storedLanguage);
-    }
-  }, []);
 
   return (
     <div
@@ -36,7 +28,7 @@ const RequestPage = () => {
         minHeight: "100vh",
       }}
     >
-      <Link href="/">
+      <Link href={{ pathname: "/", query: { lang: language } }}>
         <Image
           src="/Bultech82_logo.svg"
           alt="Company Logo"
@@ -45,54 +37,58 @@ const RequestPage = () => {
         />
       </Link>
       <div className="bg-white border border-black rounded-lg p-4 w-full max-w-3xl mt-8">
-      <form method="POST" action="https://formsubmit.co/info@bultech82.com" className="w-full max-w-3xl mt-8 bg-white">
-        <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
-          <div className="flex flex-col w-full">
-          <label htmlFor="email" className="mb-2">
-      {language === "BG" ? "Email" : "Имейл"}
-    </label>
-            <input
-              name="email"
-              type="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
-              required
-              className="border-2 border-gray-600 rounded-lg p-4 mb-4 w-full text-xl"
-            />
-          </div>
-          <div className="flex flex-col w-full">
-          <label htmlFor="file" className="mb-2">
-      {language === "BG" ? "File" : "Файл"}
-    </label>
-            <input
-              name="file"
-              type="file"
-              onChange={handleFileChange}
-              className="border-2 border-gray-600 rounded-lg p-4 mb-4 w-full text-xl"
-            />
-          </div>
-        </div>
-        <div className="flex flex-col w-full">
-        <label htmlFor="message" className="mb-2">
-      {language === "BG" ? "Message" : "Съобщение"}
-    </label>
-          <textarea
-            name="message"
-            value={message}
-            onChange={(e) => setMessage(e.target.value)}
-            required
-            minLength={10}
-            className="border-2 border-gray-600 rounded-lg p-4 mb-4 w-full h-96 text-xl"
-          />
-        </div>
-        <button
-          type="submit"
-          className="bg-black text-white rounded-lg p-4 mb-4 w-full text-xl"
+        <form
+          method="POST"
+          action="https://formsubmit.co/info@bultech82.com"
+          className="w-full max-w-3xl mt-8 bg-white"
         >
-          {language === "BG" ? "Submit" : "Изпрати"}
-        </button>
-      </form>
+          <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
+            <div className="flex flex-col w-full">
+              <label htmlFor="email" className="mb-2">
+                {language === "BG" ? "Email" : "Имейл"}
+              </label>
+              <input
+                name="email"
+                type="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+                required
+                className="border-2 border-gray-600 rounded-lg p-4 mb-4 w-full text-xl"
+              />
+            </div>
+            <div className="flex flex-col w-full">
+              <label htmlFor="file" className="mb-2">
+                {language === "BG" ? "File" : "Файл"}
+              </label>
+              <input
+                name="file"
+                type="file"
+                onChange={handleFileChange}
+                className="border-2 border-gray-600 rounded-lg p-4 mb-4 w-full text-xl"
+              />
+            </div>
+          </div>
+          <div className="flex flex-col w-full">
+            <label htmlFor="message" className="mb-2">
+              {language === "BG" ? "Message" : "Съобщение"}
+            </label>
+            <textarea
+              name="message"
+              value={message}
+              onChange={(e) => setMessage(e.target.value)}
+              required
+              minLength={10}
+              className="border-2 border-gray-600 rounded-lg p-4 mb-4 w-full h-96 text-xl"
+            />
+          </div>
+          <button
+            type="submit"
+            className="bg-black text-white rounded-lg p-4 mb-4 w-full text-xl"
+          >
+            {language === "BG" ? "Submit" : "Изпрати"}
+          </button>
+        </form>
       </div>
     </div>
   );

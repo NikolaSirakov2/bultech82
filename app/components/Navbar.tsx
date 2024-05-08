@@ -9,16 +9,9 @@ import { NAV_LINKS, NAV_LINKS_BG } from "@/constants/navLinks";
 import { useLanguage } from "./LanguageContext";
 
 const Navbar = () => {
-  const { language: initialLanguage, setLanguage: setLanguageContext } = useLanguage();
-  const [language, setLanguageState] = useState(() => localStorage.getItem('language') || initialLanguage);
+  const { language, setLanguage } = useLanguage();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const menuRef = useRef<HTMLDivElement | null>(null);
-
-  const setLanguage = (newLanguage: string) => {
-    setLanguageState(newLanguage);
-    localStorage.setItem('language', newLanguage);
-    setLanguageContext(newLanguage);
-  };
 
   const toggleMenu = () => {
     if (window.innerWidth <= 524) {
@@ -29,7 +22,6 @@ const Navbar = () => {
   const toggleLanguage = () => {
     const newLanguage = language === "BG" ? "EN" : "BG";
     setLanguage(newLanguage);
-    localStorage.setItem("language", newLanguage);
   };
 
   useEffect(() => {

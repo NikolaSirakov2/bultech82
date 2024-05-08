@@ -56,13 +56,7 @@ type Sample = {
 };
 
 function CardModal({ sample, onClose }: { sample: any; onClose: any }) {
-  const { language: initialLanguage } = useLanguage();
-  const [language, setLanguage] = useState(initialLanguage);
-
-  useEffect(() => {
-    const savedLanguage = localStorage.getItem('language');
-    setLanguage(savedLanguage || initialLanguage);
-  }, [initialLanguage]);
+  const { language } = useLanguage();
   return (
     <div
       style={{ backgroundColor: "rgba(0, 0, 0, 0.6)" }}
@@ -90,13 +84,7 @@ function CardModal({ sample, onClose }: { sample: any; onClose: any }) {
 
 function SampleParts() {
   const [selectedSample, setSelectedSample] = useState<Sample | null>(null);
-  const { language: initialLanguage } = useLanguage();
-  const [language, setLanguage] = useState(initialLanguage);
-
-  useEffect(() => {
-    const savedLanguage = localStorage.getItem('language');
-    setLanguage(savedLanguage || initialLanguage);
-  }, [initialLanguage]);
+  const { language } = useLanguage();
 
   return (
     <div className="mx-auto max-w-screen-lg relative">

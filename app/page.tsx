@@ -9,11 +9,9 @@ import Navbar from "@/app/components/Navbar";
 import React from "react";
 import { LanguageProvider } from "./components/LanguageContext";
 
-// ...
-
 export default function App() {
   return (
-    <LanguageProvider>
+    <LanguageProvider initialLanguage="BG">
       <>
         <Navbar /> 
         <div id="hero"><Hero /></div>
