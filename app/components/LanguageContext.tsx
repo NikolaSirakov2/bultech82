@@ -1,4 +1,4 @@
-import React, { createContext, useState, useContext, useEffect } from 'react';
+import React, { createContext, useState, useContext } from 'react';
 
 interface LanguageContextValue {
   language: string;
@@ -8,15 +8,7 @@ interface LanguageContextValue {
 const LanguageContext = createContext<LanguageContextValue | undefined>(undefined);
 
 export const LanguageProvider = ({ children, initialLanguage }: { children: React.ReactNode, initialLanguage: string }) => {
-  const [language, setLanguage] = useState(() => {
-    // Try to get the language from localStorage, or fall back to the initial language
-    return localStorage.getItem('language') || initialLanguage;
-  });
-
-  // Update localStorage whenever the language changes
-  useEffect(() => {
-    localStorage.setItem('language', language);
-  }, [language]);
+  const [language, setLanguage] = useState(initialLanguage);
 
   return (
     <LanguageContext.Provider value={{ language, setLanguage }}>
