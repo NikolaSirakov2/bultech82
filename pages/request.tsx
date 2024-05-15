@@ -1,20 +1,66 @@
 import "../app/globals.css";
 import Image from "next/image";
-import { useState, useEffect } from "react";
+import { useState, useRef, useEffect } from "react";
 import Link from "next/link";
 
 const RequestPage = () => {
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
-  const [file, setFile] = useState<File | null>(null);
+  const [file, setFile] = useState<File[] | null>(null);
   const [language, setLanguage] = useState<string | null>(null);
 
+  const fileInputRef = useRef<HTMLInputElement>(null);
+
+  useEffect(() => {
+    const storedLanguage = localStorage.getItem('language');
+    console.error(storedLanguage);
+  }, []);
+
   const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const file = event.target.files?.[0];
-    if (file && file.type === "application/pdf") {
-      setFile(file);
+    const files = Array.from(event.target.files || []);
+    const totalSize = files.reduce((total, file) => total + file.size, 0);
+  
+    if (totalSize > 5 * 1024 * 1024) { 
+      alert("Total file size exceeds 5MB.");
+      if (fileInputRef.current) {
+        fileInputRef.current.value = "";
+      }
+      return;
+    }
+  
+    const validFiles = files.filter(file => 
+      file.type === "application/pdf" || file.name.endsWith('.dxf') || file.name.endsWith('.stp')
+    );
+  
+    if (validFiles.length !== files.length) {
+      alert("Invalid file format. Only .pdf, .dxt, and .stp files are allowed.");
+      if (fileInputRef.current) {
+        fileInputRef.current.value = "";
+      }
+      return;
+    }
+  
+    setFile(validFiles);
+  };
+
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+
+    const formData = new FormData(event.currentTarget);
+    const response = await fetch("https://getform.io/f/lbjkqzma", {
+      method: "POST",
+      body: formData,
+    });
+
+    if (response.ok) {
+      setEmail("");
+      setMessage("");
+      setFile(null);
+      if (fileInputRef.current) {
+        fileInputRef.current.value = "";
+      }
     } else {
-      alert("Invalid file format");
+      alert("Form submission failed.");
     }
   };
 
@@ -38,8 +84,8 @@ const RequestPage = () => {
       </Link>
       <div className="bg-white border border-black rounded-lg p-4 w-full max-w-3xl mt-8">
         <form
-          method="POST"
-          action="https://formsubmit.co/info@bultech82.com"
+          onSubmit={handleSubmit}
+          encType="multipart/form-data"
           className="w-full max-w-3xl mt-8 bg-white"
         >
           <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
@@ -62,10 +108,12 @@ const RequestPage = () => {
                 {language === "BG" ? "File" : "Файл"}
               </label>
               <input
-                name="file"
-                type="file"
-                onChange={handleFileChange}
-                className="border-2 border-gray-600 rounded-lg p-4 mb-4 w-full text-xl"
+               ref={fileInputRef}
+               name="file"
+               type="file"
+               multiple
+               onChange={handleFileChange}
+               className="border-2 border-gray-600 rounded-lg p-4 mb-4 w-full text-xl"
               />
             </div>
           </div>
@@ -74,7 +122,7 @@ const RequestPage = () => {
               {language === "BG" ? "Message" : "Съобщение"}
             </label>
             <textarea
-              name="message"
+              name="text"
               value={message}
               onChange={(e) => setMessage(e.target.value)}
               required
@@ -82,6 +130,11 @@ const RequestPage = () => {
               className="border-2 border-gray-600 rounded-lg p-4 mb-4 w-full h-96 text-xl"
             />
           </div>
+          <input
+            type="hidden"
+            name="_gotcha"
+            style={{ display: "none !important" }}
+          ></input>
           <button
             type="submit"
             className="bg-black text-white rounded-lg p-4 mb-4 w-full text-xl"

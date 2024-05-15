@@ -20,9 +20,10 @@ const Navbar = () => {
   };
 
   const toggleLanguage = () => {
-    const newLanguage = language === "BG" ? "EN" : "BG";
-    setLanguage(newLanguage);
-  };
+  const newLanguage = language === "BG" ? "EN" : "BG";
+  setLanguage(newLanguage);
+  localStorage.setItem('language', newLanguage);
+};
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
