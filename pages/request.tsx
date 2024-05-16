@@ -8,6 +8,8 @@ const RequestPage = () => {
   const [message, setMessage] = useState("");
   const [file, setFile] = useState<File[] | null>(null);
   const [storedLanguage, setStoredLanguage] = useState<string | null>(null);
+  const [formSubmitted, setFormSubmitted] = useState(false);
+  const [thankYouMessage, setThankYouMessage] = useState("");
 
   const fileInputRef = useRef<HTMLInputElement>(null);
 
@@ -63,6 +65,9 @@ const RequestPage = () => {
     } else {
       alert("Form submission failed.");
     }
+
+    setFormSubmitted(true);
+    setThankYouMessage(storedLanguage === "BG" ? "Thank you for your message!" : "Благодарим ви за вашето съобщение!");
   };
 
   return (
@@ -83,7 +88,10 @@ const RequestPage = () => {
           height={138}
         />
       </Link>
-      <div className="bg-white border border-black rounded-lg p-4 w-full max-w-3xl mt-8">
+      <div className="bg-white border border-black rounded-lg p-4 w-full max-w-3xl mt-8 flex items-center justify-center min-h-[500px]">
+      {formSubmitted ? (
+          <h1 className="text-6xl font-bold text-center">{thankYouMessage}</h1>
+        ) : (
         <form
           onSubmit={handleSubmit}
           encType="multipart/form-data"
@@ -99,7 +107,7 @@ const RequestPage = () => {
                 type="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+                pattern="[a-z0-9._%+\\-]+@[a-z0-9.\\-]+\\.[a-z]{2,}$"
                 required
                 className="border-2 border-gray-600 rounded-lg p-4 mb-4 w-full text-xl"
               />
@@ -143,6 +151,7 @@ const RequestPage = () => {
             {storedLanguage === "BG" ? "Submit" : "Изпрати"}
           </button>
         </form>
+        )}
       </div>
     </div>
   );
