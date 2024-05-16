@@ -7,13 +7,14 @@ const RequestPage = () => {
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
   const [file, setFile] = useState<File[] | null>(null);
-  const [language, setLanguage] = useState<string | null>(null);
+  const [storedLanguage, setStoredLanguage] = useState<string | null>(null);
 
   const fileInputRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
-    const storedLanguage = localStorage.getItem('language');
-    console.error(storedLanguage);
+    const language = localStorage.getItem('language');
+    setStoredLanguage(language);
+    console.error(language);
   }, []);
 
   const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -74,7 +75,7 @@ const RequestPage = () => {
         minHeight: "100vh",
       }}
     >
-      <Link href={{ pathname: "/", query: { lang: language } }}>
+      <Link href={{ pathname: "/"}}>
         <Image
           src="/Bultech82_logo.svg"
           alt="Company Logo"
@@ -91,7 +92,7 @@ const RequestPage = () => {
           <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
             <div className="flex flex-col w-full">
               <label htmlFor="email" className="mb-2">
-                {language === "BG" ? "Email" : "Имейл"}
+                {storedLanguage === "BG" ? "Email" : "Имейл"}
               </label>
               <input
                 name="email"
@@ -105,7 +106,7 @@ const RequestPage = () => {
             </div>
             <div className="flex flex-col w-full">
               <label htmlFor="file" className="mb-2">
-                {language === "BG" ? "File" : "Файл"}
+                {storedLanguage === "BG" ? "File" : "Файл"}
               </label>
               <input
                ref={fileInputRef}
@@ -119,7 +120,7 @@ const RequestPage = () => {
           </div>
           <div className="flex flex-col w-full">
             <label htmlFor="message" className="mb-2">
-              {language === "BG" ? "Message" : "Съобщение"}
+              {storedLanguage === "BG" ? "Message" : "Съобщение"}
             </label>
             <textarea
               name="text"
@@ -139,7 +140,7 @@ const RequestPage = () => {
             type="submit"
             className="bg-black text-white rounded-lg p-4 mb-4 w-full text-xl"
           >
-            {language === "BG" ? "Submit" : "Изпрати"}
+            {storedLanguage === "BG" ? "Submit" : "Изпрати"}
           </button>
         </form>
       </div>
