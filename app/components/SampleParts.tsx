@@ -103,7 +103,7 @@ function SampleParts() {
           {samples.map((sample, index) => (
             <CarouselItem
               key={sample.name}
-              className="w-full sm:w-1/2 md:w-1/2 lg:w-1/3 xl:w-1/3 border transform transition-transform duration-200 outline-transparent outline-2 mr-2 hover:scale-105 hover:cursor-pointer" // Adjusted card size
+              className="w-full sm:w-1/2 md:w-1/2 lg:w-1/3 xl:w-1/3 transform transition-transform duration-200 outline-transparent outline-2 mr-2 hover:scale-105 hover:cursor-pointer" // Adjusted card size
               onMouseDown={() => setSelectedSample(sample)}
             >
               <div className="w-full h-96 relative">
