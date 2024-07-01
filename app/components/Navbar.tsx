@@ -13,6 +13,13 @@ const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const menuRef = useRef<HTMLDivElement | null>(null);
 
+  useEffect(() => {
+    // Check if "language" exists in localStorage and delete it if it does
+    if (localStorage.getItem('language')) {
+      localStorage.removeItem('language');
+    }
+  }, []);
+
   const toggleMenu = () => {
     if (window.innerWidth <= 524) {
       setIsMenuOpen(!isMenuOpen);

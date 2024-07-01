@@ -67,7 +67,7 @@ const RequestPage = () => {
     }
 
     setFormSubmitted(true);
-    setThankYouMessage(storedLanguage === "BG" ? "Thank you for your message!" : "Благодарим ви за вашето съобщение!");
+    setThankYouMessage(storedLanguage !== "EN" ? "Thank you for your message!" : "Благодарим ви за вашето съобщение!");
   };
 
   return (
@@ -100,7 +100,7 @@ const RequestPage = () => {
           <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
             <div className="flex flex-col w-full">
               <label htmlFor="email" className="mb-2">
-                {storedLanguage === "BG" ? "Email" : "Имейл"}
+                {storedLanguage !== "EN" ? "Email" : "Имейл"}
               </label>
               <input
                 name="email"
@@ -114,7 +114,7 @@ const RequestPage = () => {
             </div>
             <div className="flex flex-col w-full">
               <label htmlFor="file" className="mb-2">
-                {storedLanguage === "BG" ? "File" : "Файл"}
+                {storedLanguage !== "EN" ? "File" : "Файл"}
               </label>
               <input
                ref={fileInputRef}
@@ -128,7 +128,7 @@ const RequestPage = () => {
           </div>
           <div className="flex flex-col w-full">
             <label htmlFor="message" className="mb-2">
-              {storedLanguage === "BG" ? "Message" : "Съобщение"}
+              {storedLanguage !== "EN" ? "Message" : "Съобщение"}
             </label>
             <textarea
               name="text"
@@ -148,7 +148,7 @@ const RequestPage = () => {
             type="submit"
             className="bg-black text-white rounded-lg p-4 mb-4 w-full text-xl"
           >
-            {storedLanguage === "BG" ? "Submit" : "Изпрати"}
+            {storedLanguage !== "EN" ? "Submit" : "Изпрати"}
           </button>
         </form>
         )}
