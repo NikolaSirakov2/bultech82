@@ -20,28 +20,33 @@ const ContactUs = () => {
         </div>
         <div className="flex flex-col gap-3 md:w-1/2">
           <h1 className="text-4xl font-bold text-gray-800 md:text-5xl xl:text-6xl">
-            {language === 'BG' ? 'Contact Us' : 'Контакти'}
+            {language === "BG" ? "Contact Us" : "Контакти"}
           </h1>
 
           <p className="text-1xl text-gray-600 md:text-1xl xl:text-2xl">
-            {language === 'BG' ? 'Plovdiv, Bulgaria.' : 'Пловдив, България'}
+            {language === "BG" ? "Plovdiv, Bulgaria." : "Пловдив, България"}
           </p>
 
           <p className="text-1xl text-gray-600 md:text-1xl xl:text-2xl">
-            {language === 'BG' ? 'Trakia, Industrial Zone, 4023' : 'Тракия, Индустриална зона, 4023'}
+            {language === "BG"
+              ? "Trakia, Industrial Zone, 4023"
+              : "Тракия, Индустриална зона, 4023"}
           </p>
 
           <p className="text-1xl text-gray-600 md:text-1xl xl:text-2xl">
-            {language === 'BG' ? '+359 88 999 25 65' : '+359 88 999 25 65'}
+            {language === "BG" ? "+359 88 999 25 65" : "+359 88 999 25 65"}
           </p>
 
           <p className="text-1xl text-gray-600 md:text-1xl xl:text-2xl">
-            {language === 'BG' ? 'info@bultech82.com' : 'info@bultech82.com'}
+            bultech82@gmail.com
           </p>
 
           <Link href="/request">
-            <button type="button" className="bg-black text-white rounded-lg p-2 mb-4 w-full">
-              {language === 'BG' ? 'Send us a message' : 'Изпратете запитване'}
+            <button
+              type="button"
+              className="bg-black text-white rounded-lg p-2 mb-4 w-full"
+            >
+              {language === "BG" ? "Send us a message" : "Изпратете запитване"}
             </button>
           </Link>
         </div>
